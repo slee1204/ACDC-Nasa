@@ -35,26 +35,28 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={styles.main}>
-        <Link href="/polychromatic">polychromatic</Link>
-    {
-      data && data.results.map((tech, index)=>{
-        return (
-          <div key={index}>
-            {
-              tech && tech.map((t,ind) => {
-                if(ind === 10){
-                  return(
-                    <Image src ={t} alt ={t} key={ind} width={100} height={100}/>
-                  )
-                }
-              })
-            }
+      <div className='container'>
+        <Link className='link' href="/polychromatic">polychromatic</Link>
+        <div className='cards'>
+          {
+            data && data.results.map((tech, index)=>{
+              return (
+                <div className='card' key={index}>
+                  {
+                    tech && tech.map((t,ind) => {
+                      if(ind === 10){
+                        return(
+                          <Image src ={t} alt ={t} key={ind} width={80} height={80}/>
+                        )
+                      }
+                    })
+                  }
+                </div>
+              )
+            })
+          }
           </div>
-        )
-      })
-    }
-      </main>
+      </div>
     </>
   )
 }
